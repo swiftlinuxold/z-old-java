@@ -1,0 +1,14 @@
+This repository only removes selected LibreOffice packages, not all of LibreOffice.
+
+Before LibreOffice packages can be removed, the enormous sun-java6-jre (14.7 MB) and sun-java6-bin (89.5 MB) packages need to be replaced.
+
+LibreOffice requires one of the following:
+default-jre (adds 92.4 MB)
+gcj-jre (adds 41.4 MB)
+java-jcj-compat (not available in the regular repositories)
+openjdk-6-jre (adds 92.3 MB)
+sun-java6-jre (status quo)
+java5-runtime (not available in the regular repositories)
+jre (not available in the regular repositories)
+
+Thus, the first action in the main.py script is to add gcj-jre.  The second action is to remove sun-java6-jre and sun-java6-bin.
