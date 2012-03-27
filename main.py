@@ -26,31 +26,44 @@ else:
 
 print ("============================================")
 print ("BEGIN REMOVING SELECTED LIBREOFFICE PACKAGES")
+print ("NOTE: The screen output has been suppressed due to excessive volume.")
+
+def purge_packages (packages):
+    os.system ('echo PURGING ' + packages)
+    os.system ('apt-get purge -qq ' + packages)
 
 # Add gcj-jre (41.4 MB) as a lighter replacement for sun-java6-jre and sun-java6-bin (41.4MB).
-os.system('apt-get install -y gcj-jre')
+#os.system('apt-get install -y gcj-jre')
+purge_packages ('gcj-jre')
 
 # Now that gcj-jre is installed, sun-java6-jre and sun-java6-jre are no longer needed.
 # Remove sun-java6-jre and sun-java6-bin.
-os.system('apt-get purge -y sun-java6-jre sun-java6-bin')
+#os.system('apt-get purge -y sun-java6-jre sun-java6-bin')
+purge_packages ('sun-java6-jre sun-java6-bin')
 
 # Removing selected LibreOffice packages
-os.system('apt-get purge -y libreoffice libreoffice-emailmerge libreoffice-gnome python-uno')
+#os.system('apt-get purge -y libreoffice libreoffice-emailmerge libreoffice-gnome python-uno')
+purge_packages ('libreoffice libreoffice-emailmerge libreoffice-gnome python-uno')
 
 # Remove LibreOffice Base
-os.system('apt-get purge -y libreoffice-base libreoffice-report-builder-bin')
+#os.system('apt-get purge -y libreoffice-base libreoffice-report-builder-bin')
+purge_packages ('libreoffice-base libreoffice-report-builder-bin')
 
 # Remove LibreOffice Draw and Impress
-os.system('apt-get purge -y libreoffice-draw libreoffice-impress')
+#os.system('apt-get purge -y libreoffice-draw libreoffice-impress')
+purge_packages ('libreoffice-draw libreoffice-impress')
 
 # Remove libreoffice-filter-mobiledev and libreoffice-java-common
-os.system('apt-get purge -y libreoffice-filter-mobiledev libreoffice-java-common')
+#os.system('apt-get purge -y libreoffice-filter-mobiledev libreoffice-java-common')
+purge_packages ('libreoffice-filter-mobiledev libreoffice-java-common')
 
 # Remove libreoffice-gtk
-os.system('apt-get purge -y libreoffice-gtk')
+#os.system('apt-get purge -y libreoffice-gtk')
+purge_packages ('libreoffice-gtk')
 
 # Remove LibreOffice Math
-os.system('apt-get purge -y libreoffice-math')
+#os.system('apt-get purge -y libreoffice-math')
+purge_packages ('libreoffice-math')
 
 
 
